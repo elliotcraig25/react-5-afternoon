@@ -22,6 +22,10 @@ const UPDATE_PROPERTY_TYPE = 'UPDATE_PROPERTY_TYPE';
 const UPDATE_CITY = 'UPDATE_CITY';
 const UPDATE_PROP = 'UPDATE_PROP';
 const UPDATE_FOUND = 'UPDATE_FOUND';
+const UPDATE_REAL_ESTATE_AGENT = 'UPDATE_REAL_ESTATE_AGENT';
+const UPDATE_COST = 'UPDATE_COST';
+const UPDATE_DOWN_PAYMENT = 'UPDATE_DOWN_PAYMENT';
+const UPDATE_CREDIT = 'UPDATE_CREDIT';
 
 function reducer(state = initialState, action){
     switch(action.type){
@@ -35,6 +39,14 @@ function reducer(state = initialState, action){
             return Object.assign({}, state, {propToBeUsedOn: action.payload});
         case UPDATE_FOUND:
             return Object.assign({}, state, {found: action.payload});
+        case UPDATE_REAL_ESTATE_AGENT:
+            return Object.assign({}, state, {realEstateAgent: action.payload});
+        case UPDATE_COST:
+            return Object.assign({}, state, {cost: action.payload});
+        case UPDATE_DOWN_PAYMENT: 
+            return Object.assign({}, state, {downPayment: action.payload});
+        case UPDATE_CREDIT: 
+            return Object.assign({}, state, {credit: action.payload});
         default: return state;
     }
 }
@@ -71,6 +83,34 @@ export function updateFound(found){
     return {
         type: UPDATE_FOUND,
         payload: found
+    }
+}
+
+export function updateRealEstateAgent(agent){
+    return {
+        type: UPDATE_REAL_ESTATE_AGENT,
+        payload: agent
+    }
+}
+
+export function updateCost(cost){
+    return {
+        type: UPDATE_COST, 
+        payload: cost
+    }
+}
+
+export function updateDownPayment(downPayment){
+    return {
+        type: UPDATE_DOWN_PAYMENT,
+        payload: downPayment
+    }
+}
+
+export function updateCredit(credit){
+    return {
+        type: UPDATE_CREDIT,
+        payload: credit
     }
 }
 
